@@ -1,7 +1,7 @@
-package church
+package partial
 
 /**
-  * Implementation of reactive streams that takes the baseline implementation and adds a signal that indicates when a stream has terminated.
+  * Partially church encoded / CPSed implementation
   */
 sealed trait Stream[A] {
   import Stream._

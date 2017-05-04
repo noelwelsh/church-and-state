@@ -1,4 +1,4 @@
-package church
+package partial
 
 sealed trait Observable[A] {
   import Observable._

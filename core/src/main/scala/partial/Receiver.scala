@@ -1,4 +1,4 @@
-package church
+package partial
 
 final class Receiver[A] {
   var isEmpty: Boolean = true

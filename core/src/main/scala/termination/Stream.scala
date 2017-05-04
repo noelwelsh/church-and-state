@@ -27,17 +27,14 @@ sealed trait Stream[A] {
           } yield (l, r)
       }
 
-    var result: B = zero
-    var run: Boolean = true
-
-    while(run) {
+    def loop(result: B): B =
       next(this) match {
-        case None => run = false
+        case None => result
         case Some(a) =>
-          result = f(a, result)
+          loop(f(a, result))
       }
-    }
-    result
+
+    loop(zero)
   }
 }
 object Stream {

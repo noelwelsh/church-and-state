@@ -20,13 +20,12 @@ sealed trait Stream[A] {
         case Zip(left, right) => (next(left), next(right))
       }
 
-    var result: B = zero
-
     // Never terminates
-    while(true) {
-      result = f(next(this), result)
+    def loop(result: B): B = {
+      loop(f(next(this), result))
     }
-    result
+
+    loop(zero)
   }
 }
 object Stream {
